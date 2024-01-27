@@ -10,7 +10,7 @@ public class Bird : MonoBehaviour
     public int birdSpeed;
     public GameManager gameManager; // Reference to the GameManager
 
-    public float delayBeforeKill = 3f; // Delay before calling KillBird
+    public float delayBeforeKill = 3.5f; // Delay before calling KillBird
 
     private bool birdWasLaunched = false;
 

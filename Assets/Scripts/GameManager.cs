@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public string victorySceneName;
     public string loseSceneName;
 
-    public float delayBeforeGoingToVictory = 1f;
+    public float delayBeforeGoingToVictory = 0.2f;
 
     public TextMeshPro levelPassedText; // Reference to the UI Text for Level Passed
     public TextMeshPro livesText; // Reference to the UI Text for Lives
@@ -66,22 +66,24 @@ public class GameManager : MonoBehaviour
 
     public void KillBird()
     {
-        lives--;
-        Debug.Log("Lives: " + lives);
+        if(pigsKilled < pigsToKill){
+            lives--;
+            Debug.Log("Lives: " + lives);
 
-        if (lives <= 0)
-        {
-            // Update Lives Text
-            UpdateLivesText();
+            if (lives <= 0)
+            {
+                // Update Lives Text
+                UpdateLivesText();
 
-            // Display You Lose text
-            levelPassedText.text = "You Lose!";
-            StartCoroutine(DelayedGoToLose());
-        }
-        else
-        {
-            UpdateLivesText(); // Update Lives Text
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                // Display You Lose text
+                levelPassedText.text = "You Lose!";
+                StartCoroutine(DelayedGoToLose());
+            }
+            else
+            {
+                UpdateLivesText(); // Update Lives Text
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 

@@ -66,7 +66,8 @@ public class GameManager : MonoBehaviour
 
     public void KillBird()
     {
-        if(pigsKilled < pigsToKill){
+        if (pigsKilled < pigsToKill)
+        {
             lives--;
             Debug.Log("Lives: " + lives);
 
